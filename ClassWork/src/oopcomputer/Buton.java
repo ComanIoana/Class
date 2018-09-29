@@ -11,13 +11,11 @@ public class Buton {
     private Character simbol;
     
     public Buton(Character noulSimbol){
-        simbol = noulSimbol;
-        // Constructorul are acelasi nume cu clasa
+        simbol = noulSimbol;       
     }
     
     public Character apasa (){
-        System.out.println();
         return simbol;
     }
-    
+   
 }
