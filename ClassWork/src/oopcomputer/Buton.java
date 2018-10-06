@@ -9,12 +9,15 @@ package oopcomputer;
  */
 public class Buton {
     private Character simbol;
+    private Carcasa stapana;    
     
-    public Buton(Character noulSimbol){
-        simbol = noulSimbol;       
+    public Buton(Character noulSimbol, Carcasa nouaCarcasa){
+        simbol = noulSimbol; 
+        stapana = nouaCarcasa;
     }
     
     public Character apasa (){
+        stapana.getEcran().setAfisaj(simbol.toString());
         return simbol;
     }
    

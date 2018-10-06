@@ -3,8 +3,12 @@
  */
 package stringsandnumbers;
 
-
 import java.text.*;
+
+/**
+ *
+ * @author AJC
+ */
 
 public class DecimalFormatDemo {
     

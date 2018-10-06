@@ -24,8 +24,8 @@ public class TestCalculator {
         calculator.alu.setOperandUnu(Integer.parseInt(calculator.ecran.getAfisaj()));
         System.out.print(calculator.alu.getOperandUnu());       
        
-        calculator.alu.setOperand(calculator.butonPlus.apasa()); 
-        System.out.print(calculator.alu.getOperand());         
+        calculator.alu.setOperator(calculator.butonPlus.apasa()); 
+        System.out.print(calculator.alu.getOperator());         
         
         calculator.ecran.setAfisaj(Character.toString(calculator.buton3.apasa()));        
         calculator.ecran.setAfisaj(calculator.ecran.getAfisaj() + Character.toString(calculator.buton2.apasa()));        
