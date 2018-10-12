@@ -16,7 +16,7 @@ public class TestCalculator {
         
         // Creeaza un calculator
         Carcasa calculator = new Carcasa();
-        
+
         //La pornire se afiseaza 0 
         System.out.println("Afisaj la pornire: " + calculator.getEcran().getAfisaj());
        

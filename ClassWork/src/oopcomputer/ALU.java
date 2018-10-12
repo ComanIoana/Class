@@ -13,7 +13,7 @@ public class ALU {
     private Integer operandDoi;
     private Character operator;
     private Integer rezultat;
-        
+
     public Character getOperator() {
         return operator;
     }

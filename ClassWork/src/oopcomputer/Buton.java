@@ -41,6 +41,5 @@ public class Buton {
         else {         
         stapana.getEcran().setAfisaj(stapana.getEcran().getAfisaj() + simbol.toString());        
         }
-        
-    }     
+    }  
 }

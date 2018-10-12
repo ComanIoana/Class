@@ -9,7 +9,6 @@ package oopcomputer;
  */
 public class Ecran {
     private String afisaj = "0";
-         
     public String getAfisaj() {
         return afisaj;
     }
