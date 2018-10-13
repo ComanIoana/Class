@@ -15,9 +15,9 @@ public class Carcasa {
         return ecran;
     }
     
-    //Creeare ALU
-    private ALU alu = new ALU();   
-    public ALU getAlu() {
+    //Creeare Alu
+    private Alu alu = new Alu();   
+    public Alu getAlu() {
         return alu;
     }
     
