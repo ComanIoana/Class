@@ -22,58 +22,58 @@ public class ExecutorCalcule {
         Calculator aCalculator = new Calculator();
         
         try{
-        System.out.println("Plese intoduce first number:");
-        Scanner sci = new Scanner(System.in);
-        int i = sci.nextInt();
-                
-        System.out.println("Please intoduce operator");
-        Scanner sco = new Scanner(System.in);
-        char operator = sco.next().charAt(0);
-        if (operator != '+' && operator != '-' && operator != '*' && 
-                operator != '/'){
-            System.out.println("Sorry, you introduced wrong data. I quit :)");
-            System.exit(0);
-        } 
-            
-        System.out.println("Please instroduce second number:");
-        Scanner scj = new Scanner(System.in);
-        int j = scj.nextInt();
-        
-        System.out.println("Please intoduce '='");
-        Scanner sce = new Scanner(System.in);
-        char equal = sce.next().charAt(0); 
-        if (equal != '='){
-            System.out.println("Sorry, you introduced wrong data. I quit :(");
-            System.exit(0);
-        }
-        
-        System.out.println("Result is");
-        
-        switch(operator){
-            case '+': 
-            {   
-                int outputAdd = aCalculator.add(i, j);
-                System.out.println(outputAdd);
-                break;
+            System.out.println("Plese intoduce first number:");
+            Scanner sci = new Scanner(System.in);
+            int i = sci.nextInt();
+
+            System.out.println("Please intoduce operator");
+            Scanner sco = new Scanner(System.in);
+            char operator = sco.next().charAt(0);
+            if (operator != '+' && operator != '-' && operator != '*' && 
+                    operator != '/'){
+                System.out.println("Sorry, you introduced wrong data. I quit :)");
+                System.exit(0);
+            } 
+
+            System.out.println("Please instroduce second number:");
+            Scanner scj = new Scanner(System.in);
+            int j = scj.nextInt();
+
+            System.out.println("Please intoduce '='");
+            Scanner sce = new Scanner(System.in);
+            char equal = sce.next().charAt(0); 
+            if (equal != '='){
+                System.out.println("Sorry, you introduced wrong data. I quit :(");
+                System.exit(0);
             }
-            case '-':
-            {
-                int outputDecrease = aCalculator.decrease(i, j);
-                System.out.println(outputDecrease);
-                break;
-            }
-            case '*':
-            {
-                int outputMultiply = aCalculator.multiply(i, j);
-                System.out.println(outputMultiply);
-                break;
-            }    
-            case '/':
-            {
-                int outputDivide = aCalculator.divide(i, j);
-                System.out.println(outputDivide);
-                break;
-            }    
+
+            System.out.println("Result is");
+
+            switch(operator){
+                case '+': 
+                {   
+                    int outputAdd = aCalculator.add(i, j);
+                    System.out.println(outputAdd);
+                    break;
+                }
+                case '-':
+                {
+                    int outputDecrease = aCalculator.decrease(i, j);
+                    System.out.println(outputDecrease);
+                    break;
+                }
+                case '*':
+                {
+                    int outputMultiply = aCalculator.multiply(i, j);
+                    System.out.println(outputMultiply);
+                    break;
+                }    
+                case '/':
+                {
+                    int outputDivide = aCalculator.divide(i, j);
+                    System.out.println(outputDivide);
+                    break;
+                }    
         }
     }catch(InputMismatchException e){
             System.out.println("Sorry, you introduced wrong data. I quit :)");
