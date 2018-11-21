@@ -23,7 +23,7 @@ public class Multiprocess {
         try {
             ProcessBuilder pb;
             // Use process builder to start 2 processes multithreading.SayHello with parameter
-                pb= new ProcessBuilder(
+                pb = new ProcessBuilder(
                 "java",
                 "-classpath",
                 "E:\\Chiut\\IT\\Java\\Class\\Class\\ClassWork\\build\\classes",
@@ -33,8 +33,7 @@ public class Multiprocess {
                 env.put("TEXT_CONGRATS", "Congratulations for starting your process! ");
                 env.remove("OTHERVAR");
                 env.put("TEXT_HI", "Hello ");
-                pb.directory(new File("E:\\Chiut\\IT\\Java\\Class\\Class\\ClassWork\\build\\classes\\multithreading")
-            );
+                pb.directory(new File("E:\\Chiut\\IT\\Java\\Class\\Class\\ClassWork\\build\\classes\\multithreading"));
             Process p1 = pb.start();
             Process p2 = pb.start();
         } catch (IOException ex) {
