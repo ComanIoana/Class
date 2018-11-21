@@ -25,7 +25,7 @@ public class Counter {
     public synchronized void decrement() {
     value--;
     }
-    public double getValue() {
+    public synchronized double getValue() {
     return value;
     }
 }

@@ -9,7 +9,7 @@ package multithreading;
  */
 public class Add extends Thread {
     
-    //In memerie va veni variabila creata in contor
+    //In memorie va veni variabila creata in contor
     private Counter counter;
     
     public Add(Counter commonCounter){
