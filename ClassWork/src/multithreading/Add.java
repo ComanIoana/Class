@@ -1,5 +1,5 @@
 /*
- * Clasa este un thread paralele care va aduna o unitate la un biect de tip counter
+ * Clasa este un thread paralel care va aduna o unitate la un obiect de tip counter
  */
 package multithreading;
 
