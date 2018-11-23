@@ -16,7 +16,7 @@ public class Woman {
     private boolean sleeping;
     private boolean watchingTv;
     
-    public void isSomking(){
+    public void isSmoking(){
         cigar.burning();
     }
 
