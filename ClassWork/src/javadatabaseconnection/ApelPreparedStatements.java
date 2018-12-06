@@ -41,8 +41,8 @@ public class ApelPreparedStatements {
             // if an exception will occur excetion will be catched. If nor we make commit.
             String cnpTest = "'1930323024569'";
             String cnp = "1930323024569";
-            String codLocalitate = "30";
-            String codJudet = "30";
+            String codLocalitate = "5";
+            String codJudet = "5";
             String denumireLocalitate = "CUCUIETII DIN DEAL";
             String denumireJudet = "VASLUI";
             statement = connection.createStatement();
@@ -76,9 +76,9 @@ public class ApelPreparedStatements {
             //we read persons informations to check our insert
             connection.setAutoCommit(true);
             statement = connection.createStatement();
-            query = "SELECT PERSOANE.CNP,PERSOANE.NUME,PERSOANE.PRENUME,PERSOANE.VARSTA, PERSOANE.DOMICILIUL, LOCALITATI.DENUMIRE AS LOCALITATE, JUDETE.DENUMIRE AS JUDET\n" +
+            query = "SELECT PERSOANE.CNP,PERSOANE.NUME,PERSOANE.PRENUME,PERSOANE.VARSTA, PERSOANE.DOMICILIU, LOCALITATI.DENUMIRE AS LOCALITATE, JUDETE.DENUMIRE AS JUDET \n" +
                             "FROM PERSOANE, LOCALITATI, JUDETE\n" +
-                            "WHERE PERSOANE.COD_LOCALITATE=LOCALITATI.COD_LOCALITATE AND LOCALITATI.COD_JUDET=JUDETE.COD_JUDET\n";
+                            "WHERE PERSOANE.COD_LOCALITATE=LOCALITATI.COD_LOCALITATE AND LOCALITATI.COD_JUDET=JUDETE.COD_JUDET";
             resultSet = statement.executeQuery(query);
             if (resultSet!=null)
             {
@@ -86,23 +86,23 @@ public class ApelPreparedStatements {
                 // format report header
                 StringBuilder sb = new StringBuilder();
                 Formatter formatter = new Formatter(sb, Locale.US);
-                formatter.format("%1$-13s %2$-25s %3$-25s %4$-6s %5$-25s %6$-15s %7$-15s","CNP", "NUME", "PRENUME", "VARSTA", "DOMICILIUL", "LOCALITATE","JUDET");
+                formatter.format("%1$-13s %2$-25s %3$-25s %4$-6s %5$-25s %6$-15s %7$-15s","CNP", "NUME", "PRENUME", "VARSTA", "DOMICILIUL", "LOCALITATE", "JUDET");
                 //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul);
                 System.out.println(sb.toString());
-                System.out.println("============="+ "========================="+ "========================="+ "======"+ "==============="+ "==============="+"==============="+"===============");
+                System.out.println("=================="+ "==================="+ "========================="+ "======"+ "==============="+ "====================="+ "======================="+"==================");
                 // display the content of table row by row
                 while(resultSet.next()){
                     String currentCNP = resultSet.getString(1);
                     String currentPersoaneNume = resultSet.getString(2);
                     String currentPersoanePrenume = resultSet.getString(3);
                     String currentPersoaneVarsta = resultSet.getString(4);
-                    String currentPersoaneDomiciliul = resultSet.getString(5);
+                    String currentPersoaneDomiciliu = resultSet.getString(5);
                     String currentLocalitateDenumire = resultSet.getString(6);
                     String currentJudetDenumire = resultSet.getString(7);
                     sb = new StringBuilder();
                     formatter = new Formatter(sb, Locale.US);
-                    formatter.format("%1$-13s %2$-25s %3$-25s %4$-6s %5$-25s %6$-15s %6$-15s",currentCNP, currentPersoaneNume, currentPersoanePrenume, currentPersoaneVarsta, currentPersoaneDomiciliul, currentLocalitateDenumire, currentJudetDenumire);
-                    //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul+currentLocalitatiDenumire+currentJudeteDenumire);
+                    formatter.format("%1$-13s %2$-25s %3$-25s %4$-6s %5$-25s %6$-15s %7$-15s",currentCNP, currentPersoaneNume, currentPersoanePrenume, currentPersoaneVarsta, currentPersoaneDomiciliu, currentLocalitateDenumire, currentJudetDenumire);
+                    //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul+currentLocalitatiDenumire+currentJudetDenumire);
                     System.out.println(sb.toString());
                 }
             }
@@ -154,11 +154,11 @@ public class ApelPreparedStatements {
      * @param sNume
      * @param sPrenume
      * @param sVarsta
-     * @param sDomiciliul
+     * @param sDomiciliu
      * @param sCodLocalitate
      * @throws SQLException
      */
-    public static void insertPersoana(String sCNP, String sNume, String sPrenume, String sVarsta, String sDomiciliul, String sCodLocalitate) throws SQLException {
+    public static void insertPersoana(String sCNP, String sNume, String sPrenume, String sVarsta, String sDomiciliu, String sCodLocalitate) throws SQLException {
         String user = "test";
         String password = "test";
         String url = "jdbc:derby://localhost:1527/persoane;create=true";
@@ -180,7 +180,7 @@ public class ApelPreparedStatements {
             pstmnt.setString(2, sNume);
             pstmnt.setString(3, sPrenume);
             pstmnt.setShort(4, Short.parseShort(sVarsta));
-            pstmnt.setString(5, sDomiciliul);
+            pstmnt.setString(5, sDomiciliu);
             pstmnt.setShort(6, Short.parseShort(sCodLocalitate));
             pstmnt.execute();
         }
