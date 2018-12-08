@@ -72,7 +72,7 @@ public class BookAuthorPreparedStatements {
                 System.out.println("Author having SSN "+ssnAuthor+" is already in our DB.");
             }
             statement = connection.createStatement();
-            query = "SELECT ID FROM EBOOKS_AUTHORS WHERE ID="+id;
+            query = "SELECT ID FROM EBOOKS_AUTHORS WHERE ID = "+id;
             resultSet = null;
             resultSet = statement.executeQuery(query);
             if (!resultSet.next())            
@@ -154,7 +154,7 @@ public class BookAuthorPreparedStatements {
      * Methods call a database stored insert with parameters prepared statement
      * @param sISBN
      * @param sTitle
-     * @param iPages
+     * @param sPages
      * @param sIdType
      * @param sIdGenre
      * @param sIdQuality
