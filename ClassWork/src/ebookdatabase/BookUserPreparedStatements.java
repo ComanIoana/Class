@@ -41,11 +41,11 @@ public class BookUserPreparedStatements {
             }
             connection = DriverManager.getConnection(url, user, password);
             connection.setAutoCommit(false);
-            String ssnUserTest = "'2970416297256'";
-            String ssnUser = "2970416297256";
+            String ssnUserTest = "'2950824287886'";
+            String ssnUser = "2950824287886";
             String rating = "5";
             String isbn = "978-606-789-042-6";
-            String id = "136485";
+            String id = "1364125";
             statement = connection.createStatement();
             String query = "SELECT SSN FROM USERS WHERE SSN = "+ssnUserTest;
             resultSet = null;
@@ -73,15 +73,11 @@ public class BookUserPreparedStatements {
             resultSet = statement.executeQuery(query);
             if (resultSet!=null)
             {
-
-                // format report header
                 StringBuilder sb = new StringBuilder();
                 Formatter formatter = new Formatter(sb, Locale.US);
                 formatter.format("%1$-18s %2$-50s %3$-1s","SSN", "TITLE", "RATING");
-                //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul);
                 System.out.println(sb.toString());
                 System.out.println("=================="+ "==================="+ "=========================");
-                // display the content of table row by row
                 while(resultSet.next()){
                     String currentSSN = resultSet.getString(1);
                     String currentTitle = resultSet.getString(2);
@@ -89,7 +85,6 @@ public class BookUserPreparedStatements {
                     sb = new StringBuilder();
                     formatter = new Formatter(sb, Locale.US);
                     formatter.format("%1$-18s %2$-50s %3$-1s",currentSSN, currentTitle, currentRating);
-                    //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul+currentLocalitatiDenumire+currentJudetDenumire);
                     System.out.println(sb.toString());
                 }
             }
@@ -154,7 +149,6 @@ public class BookUserPreparedStatements {
             Class driverClass = Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-            //call prepared statement to insert a new person
             DML = "INSERT INTO USERS VALUES (?)";
             PreparedStatement pstmnt;
             pstmnt = connection.prepareStatement(DML);

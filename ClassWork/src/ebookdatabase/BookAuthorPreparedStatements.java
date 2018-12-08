@@ -81,7 +81,6 @@ public class BookAuthorPreparedStatements {
                 System.out.println("Author and eBook connection having ID "+id+" is already in our DB.");
             }            
             connection.commit();
-            //we read persons informations to check our insert
             connection.setAutoCommit(true);
             statement = connection.createStatement();
             query = "SELECT EBOOKS.ISBN, EBOOKS.TITLE,EBOOKS.ID_TYPE,EBOOKS.ID_QUALITY,EBOOKS.ID_GENRE, BOOK_AUTHORS.FIRST_NAME, BOOK_AUTHORS.SURNAME, EBOOKS_AUTHORS.ID \n" +
@@ -90,15 +89,11 @@ public class BookAuthorPreparedStatements {
             resultSet = statement.executeQuery(query);
             if (resultSet!=null)
             {
-
-                // format report header
                 StringBuilder sb = new StringBuilder();
                 Formatter formatter = new Formatter(sb, Locale.US);
                 formatter.format("%1$-18s %2$-50s %3$-25s %4$-25s %5$-25s %6$-30s %7$-30s","ISBN", "TITLE", "TYPE", "QUALITY", "GENRE", "AUTHOR FIRST NAME", "AUTHOR SURNAME");
-                //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul);
                 System.out.println(sb.toString());
                 System.out.println("=================="+ "==================="+ "========================="+ "======"+ "==============="+ "====================="+ "======================="+"=================="+ "==================="+ "=========================");
-                // display the content of table row by row
                 while(resultSet.next()){
                     String currentISBN = resultSet.getString(1);
                     String currentTitle = resultSet.getString(2);
@@ -110,7 +105,6 @@ public class BookAuthorPreparedStatements {
                     sb = new StringBuilder();
                     formatter = new Formatter(sb, Locale.US);
                     formatter.format("%1$-18s %2$-50s %3$-25s %4$-25s %5$-25s %6$-30s %7$-30s",currentISBN, currentTitle, currentType, currentQuality, currentGenre, currentName, currentSurname);
-                    //System.out.println(currentCNP +currentPersoaneNume+currentPersoanePrenume+currentPersoaneVarsta+currentPersoaneDomiciliul+currentLocalitatiDenumire+currentJudetDenumire);
                     System.out.println(sb.toString());
                 }
             }
@@ -180,7 +174,6 @@ public class BookAuthorPreparedStatements {
             Class driverClass = Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-            //call prepared statement to insert a new person
             DML = "INSERT INTO EBOOKS VALUES (?, ?, ?, ?, ?,?)";
             PreparedStatement pstmnt;
             pstmnt = connection.prepareStatement(DML);
@@ -224,9 +217,9 @@ public class BookAuthorPreparedStatements {
                 catch (SQLException ex){ex.printStackTrace();}
             }
         }
-    } // prepared statement call
+    }
     /**
-     * insertLocalitate inserts a new record to Localitati table
+     * 
      * @param sSSN
      * @param sFirstName
      * @param sSurname
@@ -245,7 +238,6 @@ public class BookAuthorPreparedStatements {
             Class driverClass = Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-            // call prepared statement to add a new localitate
             String DML = "INSERT INTO BOOK_AUTHORS VALUES (?, ?, ?)";
             PreparedStatement pstmnt = connection.prepareStatement(DML);
             pstmnt.setString(1, sSSN);
@@ -306,7 +298,6 @@ public class BookAuthorPreparedStatements {
             Class driverClass = Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-            // call prepared statement to add a new localitate
             String DML = "INSERT INTO EBOOKS_AUTHORS VALUES (?, ?, ?)";
             PreparedStatement pstmnt = connection.prepareStatement(DML);
             pstmnt.setInt(1, Integer.parseInt(sID));
